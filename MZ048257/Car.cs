@@ -47,7 +47,7 @@ namespace MZ048257
                 Console.Clear();
                 Console.WriteLine(trasaTab1);
                 Console.Write(trasaTab2);
-                Thread.Sleep(10);
+                Thread.Sleep(100);// tak nie wolno
 
             }
             Silnik.Dzialaj();
@@ -86,7 +86,7 @@ namespace MZ048257
                 Console.Clear();
                 Console.WriteLine(trasaTab1);
                 Console.Write(trasaTab2);
-                
+                Thread.Sleep(100);// tak nie wolno
             }
             Console.WriteLine("I pojechał.");
 
