@@ -1,4 +1,5 @@
 ﻿using System;
+using Dziedziczenie;
 
 namespace MB056625
 {
@@ -6,7 +7,9 @@ namespace MB056625
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SilnikSpalinowy p = new SilnikSpalinowy(1, 3, "Wrumm");
+            Auto a = new Auto(p);
+            a.Jedz();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Dziedziczenie
 
         public void Dzialaj()
         {
-            Console.Write(Dzwiek + " ");
+            Console.WriteLine(Dzwiek + " ");
         }
 
 
