@@ -8,7 +8,7 @@ namespace DK055906
         
         static void Main()
         {
-            Car Audi = new Car(new SilnikSpalinowy(1000,20));
+            Car Audi = new Car(new SilnikSpalinowy(1000,20, 400));
             Audi.uruchom();
 
             

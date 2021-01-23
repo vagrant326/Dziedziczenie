@@ -63,7 +63,7 @@ namespace DK055906
                 Console.Clear();
                 Console.WriteLine("Prędkość: {0} km/h", Predkosc);
                 Console.WriteLine("Dystans: {0} km", i);
-                Console.WriteLine($"Spalanie: {Math.Round(Predkosc++ / Silnik.Moc * Silnik.Spalanie, 2)} l/100km");
+                Console.WriteLine($"Spalanie: {Math.Round(Predkosc++ / SilnikSpalinowy.Vmax * Silnik.Spalanie, 2)} l/100km");
                 Console.WriteLine(i % 2 == 0 ? Silnik.Dzwiek : Silnik.Dzwiek.ToUpper());
                 Thread.Sleep(350);
             }

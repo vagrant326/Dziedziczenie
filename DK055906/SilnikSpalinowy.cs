@@ -4,9 +4,10 @@ namespace DK055906
 {
     public class SilnikSpalinowy : Silnik
     {
-        public SilnikSpalinowy(int moc, double spalanie) : base(moc, spalanie, "wrrr")
+        static public int Vmax { get; set; }
+        public SilnikSpalinowy(int moc, double spalanie, int vmax) : base(moc, spalanie, "wrrr")
         {
-            
+            Vmax = vmax;
         }
     }
 }
