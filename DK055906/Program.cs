@@ -1,12 +1,17 @@
 ﻿using System;
+using Dziedziczenie;
 
 namespace DK055906
 {
     class Program
     {
-        static void Main(string[] args)
+        
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            Car Audi = new Car(new SilnikSpalinowy(1000,20));
+            Audi.uruchom();
+
+            
         }
     }
 }
