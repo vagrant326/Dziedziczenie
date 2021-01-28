@@ -1,124 +1,135 @@
 ﻿using Dziedziczenie;
 using System;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace SP055938
 {
     class MyCar : IPojazd
     {
-        public void Jedz() => Jedz(20); //jeśli nie zostanie podana przez użytkownika żadna wartość to zostanie użyta domyślna (20)
+        public void Jedz() => Jedz(60); //jeśli nie zostanie podana przez użytkownika żadna wartość to zostanie użyta domyślna (60)
 
         public void Jedz(int dystans) //wprawia auto w ruch i wyświetla jego dane
         {
+            var kamaz = new MyCar();
+
+            Odpalanie();
+            Task.Delay(1000).Wait();
+
+            /*
+             * *poprawka 1* usunąłem funkcję main
+             * *poprawka 2* usunałem niepotrzebną zmienną
+             * *poprawka 3* Console.SetCursorPosition przeskoczy i nadpisze tylko te linie w konsoli 
+             * które wyświetla moja implementacja a nie tak jak przy Console.Clear
+             */
+            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
+            kamaz.Poruszanie(dystans);
+
+        }
+
+        public void Poruszanie(int dystans)
+        {
+            Random rand = new Random();
+            int zm = rand.Next(0, 2); ;
             var dane = new MyEngine();
-            string next;
-            for (int j = 0; j < dystans; j++)
+            string next = " ";
+
+
+            if (zm == 0)
             {
-                Console.Clear();
-                next = "".PadLeft(j);
-                Console.WriteLine(next + "           _");
-                Console.WriteLine(next + $"|       | | |");
-                Console.WriteLine(next + $" --O-O----O-/  ");
-                Console.WriteLine("-------------------------------------------------------------------------------");
-                Console.WriteLine($"Twój Kamaz ma {dane.GetMoc()}KM i akutalne spalanie {dane.GetSpalanie()}l/100km.");
-                Thread.Sleep(150); // zakazana technika ;)
+                Jedziemy(next, dane, dystans);
+            }
+            else
+            {
+                JedziemyNiedaleko(next, dane, dystans);
             }
         }
-    }
 
-    class MyEngine : Silnik
-    {
-        public MyEngine() : base(360, 35, "pyr")
-        {
-
-        }
-
-        public MyEngine(int moc, double spalanie, string dzwiek) : base(moc, spalanie, dzwiek)
-        {
-        }
-
-        public string GetMoc() // wyświetla moc 
-        {
-            return Moc + " ";
-        }
-        public string GetSpalanie()  //wyświetla spalanie
-        {
-            return Spalanie + " ";
-        }
-    }
-    class Program
-    {
-        static void NieOdpalil()  //wyświetla że silnika nie udało się odpalić
-        {
-            Console.Clear();
-            Console.WriteLine("           _  ");
-            Console.WriteLine($"|       | | |  Silnik nie odpala");
-            Console.WriteLine($" --O-O----O-/  Tym razem nie jedziemy :(");
-            Console.WriteLine("-------------------------------------------------------------------------------");
-        }
         static void Odpalanie() //wyświetla auto i dźwięk silnika
         {
             var a = new MyEngine();
             Console.WriteLine("           _  ");
             Console.WriteLine($"|       | | |  ");
             Console.WriteLine($" --O-O----O-/  ");
-            Console.WriteLine("-------------------------------------------------------------------------------");
-            string next;
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+
             for (int i = 0; i < 10; i++) // dźwięk odpalanego silnika
             {
-                Thread.Sleep(100);
+                Task.Delay(70).Wait();
                 a.Dzialaj();
             }
+            Console.WriteLine("Odpalił!");
         }
 
-        static void Main(string[] args)
+        static void Jedziemy(string next, MyEngine dane, int dystans)
         {
-            int wybuch;
-            int odpalil;
 
-            Random rand = new Random();
-            var kamaz = new MyCar();
-
-
-            wybuch = rand.Next(0, 9);
-            odpalil = rand.Next(11, 20);
-            #region
-            //wybuch = 1; //jedzie    // żeby nie czekać aż wylosują się odpowienie liczby 
-            //odpalil = 11;           // można użyc tych przypisań dla każdego przypadku
-
-            //wybuch = 1; //nie jedzie
-            //odpalil = 16;
-
-            //wybuch = 8;  //wybuchł
-            #endregion
-            if (wybuch <= 5) // przypadek gdy z randomowych liczb wypadnie więcej niż mniej niż 5
+            for (int j = 0; j < dystans; j++)
             {
-                if (odpalil <= 15) // przypadek gdy z randomowych liczb wypadnie więcej niż mniej niż 15
-                {
+                next = "".PadLeft(j);
+                Console.WriteLine(next + "            _");
+                Console.WriteLine(next + $" |       | | |");
+                Console.WriteLine(next + $" \\--O-O----O-/  ");
+                Console.WriteLine("--------------------------------------------------------------------------------------");
+                Console.WriteLine($"Jedziemy! Twój Kamaz ma {dane.GetMoc()}KM i akutalne spalanie {dane.GetSpalanie()}l/100km.");
 
-                    Odpalanie();
-                    Console.WriteLine("Odpalił!");
-                    Console.WriteLine("Jak daleko chcesz jechać? (wartość powyżej 20 trwa wieczność ;))");
-                    kamaz.Jedz(int.Parse(Console.ReadLine()));
-                }
-                else // przypadek gdy z randomowych liczb wypadnie więcej niż 15
+                Task.Delay(40).Wait(); // podobno bezpieczniejsza/bardziej przyjazna opcja niż sleep
+
+                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
+
+            }
+
+            Console.WriteLine(next + "            _");
+            Console.WriteLine(next + $" |       | | |");
+            Console.WriteLine(next + $" \\--O-O----O-/  ");
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+            Console.WriteLine($"Dojechałeś.                                                                          ");
+        }
+
+        static void JedziemyNiedaleko(string next, MyEngine dane, int dystans)
+        {
+            for (int j = 0; j < dystans; j++)
+            {
+                next = "".PadLeft(j);
+                Console.WriteLine(next + "            _");
+                Console.WriteLine(next + $" |       | | |");
+                Console.WriteLine(next + $" \\--O-O----O-/  ");
+                Console.WriteLine("--------------------------------------------------------------------------------------");
+                Console.WriteLine($"Jedziemy! Twój Kamaz ma {dane.GetMoc()}KM i akutalne spalanie {dane.GetSpalanie()}l/100km.");
+
+                Task.Delay(40).Wait();
+
+                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
+
+                if (j == (dystans / 2))
                 {
-                    Odpalanie();
-                    Console.Write("Nie odpalił!");
-                    Thread.Sleep(1000);
-                    NieOdpalil();
-                    Environment.Exit(0);
+                    next = "".PadLeft(j);
+                    Console.WriteLine(next + "  /---------\\");
+                    Console.WriteLine(next + $" /  / Boom!/ \\");
+                    Console.WriteLine(next + $"/  O   /  o / \\");
+                    Console.WriteLine("--------------------------------------------------------------------------------------");
+                    Console.WriteLine($"Już nie jedziemy! :( Proszę wyobrazić sobie efektowne wybuchy");
+                    break;
                 }
             }
-            else // przypadek gdy z randomowych liczb wypadnie więcej niż 5
-            {
-                Console.WriteLine("  /---------\\");
-                Console.WriteLine(" /  / Boom!/ \\");
-                Console.WriteLine("/  O   /  o / \\");
-                Console.WriteLine("-------------------------------------------------------------------------------");
-                Console.WriteLine("Ewidentnie coś poszło nie tak :(");
-                Environment.Exit(0);
-            }
+        }
+    }
+
+    class MyEngine : Silnik
+    {
+        public MyEngine() : base(moc: 360, spalanie: 35, dzwiek: "pyr")
+        {
+
+        }
+
+        public string GetMoc() // wyświetla moc 
+        {
+
+            return Moc + " ";
+        }
+
+        public string GetSpalanie()  //wyświetla spalanie
+        {
+            return Spalanie + " ";
         }
     }
 }
