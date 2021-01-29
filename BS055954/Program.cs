@@ -7,15 +7,10 @@ namespace BS055954
     class Program
     {
 
-        public interface IPojazd {
 
-
-
-        }
-
-        public class KlasaTestowa : Silnik, IPojazd
+        public class KlasaTestowa : IPojazd
         {
-            public Silnik Silnik { get; set; }
+            public Silnik Silnik { get; private set; }
 
             public void Jedz() => Jedz(100);
 
@@ -28,8 +23,15 @@ namespace BS055954
                 }
             }
 
-            public KlasaTestowa(int moc, double spalanie, string dzwiek) : base(moc, spalanie, dzwiek)
+
+
+            public KlasaTestowa(int moc, double spalanie, string dzwiek)
             {
+            }
+
+            public KlasaTestowa(SilnikDiesla silnik)
+            {
+                Silnik = silnik;
             }
         }
 
