@@ -6,7 +6,7 @@ namespace SP055938
 {
     class MyCar : IPojazd
     {
-        public void Jedz() => Jedz(60); //jeśli nie zostanie podana przez użytkownika żadna wartość to zostanie użyta domyślna (60)
+        public void Jedz() => Jedz(60); //domyślnie zostanie użyta wartość 60
 
         public void Jedz(int dystans) //wprawia auto w ruch i wyświetla jego dane
         {
