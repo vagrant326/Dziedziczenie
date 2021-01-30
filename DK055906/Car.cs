@@ -25,7 +25,7 @@ namespace DK055906
                 {
                     for (int i = 0; i <= 10; i++)
                     {
-                        Console.Clear();
+                        Console.WriteLine("=======");
                         Console.WriteLine("Uruchamianie silnika:\n");
                         Console.WriteLine($"Sprawdzanie błędów: {i * 10}%");
                         Console.WriteLine("");
@@ -40,11 +40,11 @@ namespace DK055906
                 }
                 else
                 {
-                    Console.Clear();
+                    Console.WriteLine("=======");
                     Console.WriteLine("Wrong key");
                     komunikat = "Naciśnij jeszcze raz \"F\" ";
                     Thread.Sleep(1000);
-                    Console.Clear();
+                    Console.WriteLine("=======");
                     check = false;
                 }
             }
@@ -60,7 +60,7 @@ namespace DK055906
             
             for (int i = 0; i < dystans; i++)
             {
-                Console.Clear();
+                Console.WriteLine("=======");
                 Console.WriteLine("Prędkość: {0} km/h", Predkosc);
                 Console.WriteLine("Dystans: {0} km", i);
                 Console.WriteLine($"Spalanie: {Math.Round(Predkosc++ / SilnikSpalinowy.Vmax * Silnik.Spalanie, 2)} l/100km");
