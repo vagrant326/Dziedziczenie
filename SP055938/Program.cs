@@ -20,6 +20,7 @@ namespace SP055938
              * *poprawka 2* usunałem niepotrzebną zmienną
              * *poprawka 3* Console.SetCursorPosition przeskoczy i nadpisze tylko te linie w konsoli 
              * które wyświetla moja implementacja a nie tak jak przy Console.Clear
+             * *poprawka 4* przeniosłem "ruch" samochodziku do jednej funkcji
              */
             Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
             kamaz.Poruszanie(dystans);
@@ -29,7 +30,8 @@ namespace SP055938
         public void Poruszanie(int dystans)
         {
             Random rand = new Random();
-            int zm = rand.Next(0, 2); ;
+            int zm = rand.Next(0, 2);
+            // zm = 0; // 0 = jedzie, 1 - wybuch
             var dane = new MyEngine();
             string next = " ";
 
@@ -65,17 +67,7 @@ namespace SP055938
 
             for (int j = 0; j < dystans; j++)
             {
-                next = "".PadLeft(j);
-                Console.WriteLine(next + "            _");
-                Console.WriteLine(next + $" |       | | |");
-                Console.WriteLine(next + $" \\--O-O----O-/  ");
-                Console.WriteLine("--------------------------------------------------------------------------------------");
-                Console.WriteLine($"Jedziemy! Twój Kamaz ma {dane.GetMoc()}KM i akutalne spalanie {dane.GetSpalanie()}l/100km.");
-
-                Task.Delay(40).Wait(); // podobno bezpieczniejsza/bardziej przyjazna opcja niż sleep
-
-                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
-
+                Ruch(ref next, dane, dystans, j);
             }
 
             Console.WriteLine(next + "            _");
@@ -89,16 +81,7 @@ namespace SP055938
         {
             for (int j = 0; j < dystans; j++)
             {
-                next = "".PadLeft(j);
-                Console.WriteLine(next + "            _");
-                Console.WriteLine(next + $" |       | | |");
-                Console.WriteLine(next + $" \\--O-O----O-/  ");
-                Console.WriteLine("--------------------------------------------------------------------------------------");
-                Console.WriteLine($"Jedziemy! Twój Kamaz ma {dane.GetMoc()}KM i akutalne spalanie {dane.GetSpalanie()}l/100km.");
-
-                Task.Delay(40).Wait();
-
-                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
+                Ruch(ref next, dane, dystans, j);
 
                 if (j == (dystans / 2))
                 {
@@ -111,6 +94,20 @@ namespace SP055938
                     break;
                 }
             }
+        }
+
+        static void Ruch(ref string next, MyEngine dane, int dystans, int j)
+        {
+            next = "".PadLeft(j);
+            Console.WriteLine(next + "            _");
+            Console.WriteLine(next + $" |       | | |");
+            Console.WriteLine(next + $" \\--O-O----O-/  ");
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+            Console.WriteLine($"Jedziemy! Twój Kamaz ma {dane.GetMoc()}KM i akutalne spalanie {dane.GetSpalanie()}l/100km.");
+
+            Task.Delay(40).Wait();
+
+            Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 5);
         }
     }
 
