@@ -14,15 +14,6 @@ namespace MZ048257
 
         new public void Dzialaj()
         {
-            Console.WriteLine(
-@"
-   %%%%   %%%%%%%     %%        %%%%%%      %%%%%%%
- %     %     %       %  %       %     %        %                    
-     %       %      %    %      %     %        %
-   %         %     %%%%%%%%     %%%%%%         %
-  %     %    %    %        %    %     %        %
-   %%%%      $   %          %   %       %      %
-");
             Console.Write($"{Dzwiek}  tuk-tuk-tuk.........");
         }
     }
