@@ -9,7 +9,7 @@ namespace Dziedziczenie
     /// </summary>
     public class SilnikDiesla : Silnik
     {
-        public SilnikDiesla(int moc, double spalanie,string dzwiek): base(moc,spalanie,"kle")
+        public SilnikDiesla(int moc, double spalanie) : base(moc, spalanie, "kle")
         {
             
         }
