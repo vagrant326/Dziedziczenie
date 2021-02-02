@@ -11,9 +11,8 @@ namespace MK055917
         {
             for (int i = 0; i < 10; i++)
             {
-                Console.Clear();
                 Console.WriteLine("===== Uruchamianie silnika =====\n");
-                Console.WriteLine($"Prędkość maksymalna: {Silnik.Vmax}");
+                Console.WriteLine($"Prędkość maksymalna: {Silnik.Moc}");
                 Console.WriteLine($"Spalanie: {Silnik.Spalanie}\n");
                 Console.WriteLine($"Test systemów: {i * 10}%");
 
@@ -22,35 +21,26 @@ namespace MK055917
                     Console.Write("==");
                 }
                 Thread.Sleep(300);
+                Console.SetCursorPosition(0, Console.CursorTop - 6);
             }
-
-            Silnik.Odpalony = true;
         }
         public void Jedz() => Jedz(50);
         public void Jedz(int dystans)
         {
-            if (Silnik.Odpalony)
+            double actSpeed = 1;
+            int gear = 0;
+            for (int i = 0; i < dystans; i++)
             {
-                double actSpeed = 1;
-                int gear = 0;
-                for (int i = 0; i < dystans; i++)
-                {
-                    Console.Clear();
-                    actSpeed = i > Silnik.Vmax ? Silnik.Vmax : i;
-                    gear = (Int32)Math.Round(actSpeed / Silnik.Vmax * 5 + 1);
-                    Console.WriteLine($"Prędkość: {actSpeed} km/h");
-                    Console.WriteLine($"Spalanie: {Math.Round(actSpeed / Silnik.Vmax * Silnik.Spalanie, 2)} l/100km");
-                    Console.WriteLine($"Bieg: {gear}");
-                    Console.WriteLine($"Obroty silnika: {Math.Round(actSpeed / gear * 140)} RPM");
-                    Console.WriteLine($"Dystans: {i} km");
-                    Console.WriteLine(i % 2 == 0 ? "wrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" : "wrRrRrRrRrRrRrRrRrRrRrRrRrRrRrR");
-                    Thread.Sleep(350);
-                }
-            }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Silnik nie został uruchomiony");
+                actSpeed = i > Silnik.Moc ? Silnik.Moc : i;
+                gear = (Int32)Math.Round(actSpeed / Silnik.Moc * 5 + 1);
+                Console.WriteLine($"Prędkość: {actSpeed} km/h                              ");
+                Console.WriteLine($"Spalanie: {Math.Round(actSpeed / Silnik.Moc * Silnik.Spalanie, 2)} l/100km               ");
+                Console.WriteLine($"Bieg: {gear}                              ");
+                Console.WriteLine($"Obroty silnika: {Math.Round(actSpeed / gear * 140)} RPM               ");
+                Console.WriteLine($"Dystans: {i} km               ");
+                Console.WriteLine(i % 2 == 0 ? "wrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" : "wrRrRrRrRrRrRrRrRrRrRrRrRrRrRrR               ");
+                Thread.Sleep(350);
+                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 6);
             }
         }
 
@@ -62,28 +52,37 @@ namespace MK055917
 
     public abstract class Silnik
     {
-        public double Spalanie { get; set; }
-        public double Vmax { get; set; }
-        public bool Odpalony { get; set; }
+        public int Moc { get; private set; }
+        public double Spalanie { get; private set; }
+        public string Dzwiek { get; private set; }
 
-        protected Silnik(double spalanie, double vmax)
+        public void Dzialaj()
         {
+            Console.Write(Dzwiek + " ");
+        }
+
+
+        protected Silnik(int moc, double spalanie, string dzwiek)
+        {
+            Moc = moc;
             Spalanie = spalanie;
-            Vmax = vmax;
-            Odpalony = false;
+            Dzwiek = dzwiek;
         }
     }
 
     public class SilnikSpalinowy : Silnik
     {
-        public SilnikSpalinowy(double spalanie, double vmax) : base(spalanie, vmax) { }
+        public SilnikSpalinowy(int moc, double spalanie) : base(moc, spalanie, "kle")
+        {
+
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            var tir = new Tir(new SilnikSpalinowy(10, 150));
+            var tir = new Tir(new SilnikSpalinowy(150, 10));
 
             tir.Odpal();
             tir.Jedz(500);
