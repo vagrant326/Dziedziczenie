@@ -17,7 +17,7 @@ namespace MB056625
             string a = "";
             for (int i = 0; i < dystans / this.Silnik.Spalanie; i++)
             {
-                Console.Clear();
+                
                 Console.WriteLine(a);
                 Console.Write(a);
                 Silnik.Dzialaj();
