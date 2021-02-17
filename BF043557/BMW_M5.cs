@@ -1,6 +1,11 @@
-﻿namespace BF043557
+﻿using Dziedziczenie;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BF043557
 {
-    class BMW_M5 : Dziedziczenie.IPojazd
+    class BMW_M5 : IPojazd
     {
         public Dziedziczenie.Silnik silnik { get; set; }
 

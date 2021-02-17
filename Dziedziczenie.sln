@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dziedziczenie", "Dziedziczenie\Dziedziczenie.csproj", "{247DF9EA-7B57-4188-AD27-92E36FF605F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BF043557", "BF043557\BF043557.csproj", "{EC93B1F2-A17D-4E71-AEF6-5402A2A51969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{247DF9EA-7B57-4188-AD27-92E36FF605F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247DF9EA-7B57-4188-AD27-92E36FF605F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247DF9EA-7B57-4188-AD27-92E36FF605F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC93B1F2-A17D-4E71-AEF6-5402A2A51969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC93B1F2-A17D-4E71-AEF6-5402A2A51969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC93B1F2-A17D-4E71-AEF6-5402A2A51969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC93B1F2-A17D-4E71-AEF6-5402A2A51969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
