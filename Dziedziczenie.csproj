@@ -1,0 +1,109 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{03D8FD59-289B-4462-97B2-7647970D0467}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Dziedziczenie</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="Dziedziczenie\Dziedziczenie.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\dotnet.yml" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-merge-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\develop" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\logs\refs\remotes\upstream\develop" />
+    <None Include=".git\logs\refs\remotes\upstream\main" />
+    <None Include=".git\objects\pack\pack-cd76f76f800779db6df8cc7a5b540ae1674b05dc.idx" />
+    <None Include=".git\objects\pack\pack-cd76f76f800779db6df8cc7a5b540ae1674b05dc.pack" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\develop" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".git\refs\remotes\upstream\develop" />
+    <None Include=".git\refs\remotes\upstream\main" />
+    <None Include="BF043557\obj\BF043557.csproj.nuget.dgspec.json" />
+    <None Include="BF043557\obj\BF043557.csproj.nuget.g.props" />
+    <None Include="BF043557\obj\BF043557.csproj.nuget.g.targets" />
+    <None Include="BF043557\obj\Debug\netcoreapp3.1\BF043557.AssemblyInfoInputs.cache" />
+    <None Include="BF043557\obj\Debug\netcoreapp3.1\BF043557.assets.cache" />
+    <None Include="BF043557\obj\Debug\netcoreapp3.1\BF043557.csprojAssemblyReference.cache" />
+    <None Include="BF043557\obj\project.assets.json" />
+    <None Include="BF043557\obj\project.nuget.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BF043557\BMW_M5.cs" />
+    <Compile Include="BF043557\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="BF043557\obj\Debug\netcoreapp3.1\BF043557.AssemblyInfo.cs" />
+    <Compile Include="BF043557\V8.cs" />
+    <Compile Include="Dziedziczenie\Ciezarowka.cs" />
+    <Compile Include="Dziedziczenie\IPojazd.cs" />
+    <Compile Include="Dziedziczenie\Silnik.cs" />
+    <Compile Include="Dziedziczenie\SilnikDiesla.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include=".vs\Dziedziczenie\v16\" />
+    <Folder Include="BF043557\bin\Debug\netcoreapp3.1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
