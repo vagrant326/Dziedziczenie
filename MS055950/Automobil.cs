@@ -69,5 +69,6 @@ namespace MS055950
             Pojazd[2] = " -O-----O-- ";
         }
     }
-    }
+ 
+        
 }
