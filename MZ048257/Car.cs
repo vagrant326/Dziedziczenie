@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace MZ048257
 {
-    class Car : IPojazd
+    public class Car : IPojazd
     {
         public Silnik silnik { get; set; }
 

@@ -5,4 +5,19 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BF043557\BF043557.csproj" />
+    <ProjectReference Include="..\BS055954\BS055954.csproj" />
+    <ProjectReference Include="..\DH055847\DH055847.csproj" />
+    <ProjectReference Include="..\DK055906\DK055906.csproj" />
+    <ProjectReference Include="..\Dziedziczenie\Dziedziczenie.csproj" />
+    <ProjectReference Include="..\MB056625\MB056625.csproj" />
+    <ProjectReference Include="..\MK055917\MK055917.csproj" />
+    <ProjectReference Include="..\MS055950\MS055950.csproj" />
+    <ProjectReference Include="..\MZ048257\MZ048257.csproj" />
+    <ProjectReference Include="..\PM055928\PM055928.csproj" />
+    <ProjectReference Include="..\SP055938\SP055938.csproj" />
+    <ProjectReference Include="..\TK056638\TK056638.csproj" />
+  </ItemGroup>
+
 </Project>

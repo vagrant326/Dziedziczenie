@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Prezentacja
 {
@@ -6,8 +7,28 @@ namespace Prezentacja
     {
         static void Main(string[] args)
         {
-            // Dodaję funkcję Main z powodu błędów na GitHubie
-            Console.WriteLine("To jest projekt uruchomieniowy. W nim zbiorę wszystkie implementacje pojazdów.");
+            var pojazdy = Helper.Zaladuj();
+            Console.Clear();
+            Console.WriteLine($"Ilość pojazdów: {pojazdy.Count()}");
+            Console.WriteLine("Wciskaj ENTER by uruchomić kolejne pojazdy...");
+            Console.ReadLine();
+
+            foreach (var pojazd in pojazdy)
+            {
+                try
+                {
+                    Console.WriteLine(pojazd);
+                    pojazd.Jedz(100);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    continue;
+                }
+                Console.ResetColor();
+                Console.WriteLine("-----------------------");
+                Console.ReadLine();
+            }
         }
     }
 }

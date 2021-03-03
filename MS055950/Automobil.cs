@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace MS055950
 {
-    class Automobil : IPojazd
+    public class Automobil : IPojazd
     {
         public Silnik Silnik { get; set; }
 

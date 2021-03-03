@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace SP055938
 {
-    class MyCar : IPojazd
+    public class MyCar : IPojazd
     {
         public void Jedz() => Jedz(60); //domyślnie zostanie użyta wartość 60
 
@@ -111,7 +111,7 @@ namespace SP055938
         }
     }
 
-    class MyEngine : Silnik
+    public class MyEngine : Silnik
     {
         public MyEngine() : base(moc: 360, spalanie: 35, dzwiek: "pyr")
         {

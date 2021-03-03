@@ -4,7 +4,7 @@ using System;
 
 namespace BS055954
 {
-    class Program
+    public class Program
     {
 
 

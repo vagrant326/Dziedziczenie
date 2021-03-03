@@ -4,7 +4,7 @@ using System.Text;
 using Dziedziczenie;
 namespace MB056625
 {
-    class Auto : IPojazd
+    public class Auto : IPojazd
     {
         public Silnik Silnik { get; private set; }
 

@@ -4,7 +4,7 @@ using Dziedziczenie;
 namespace DH055847
 {
 
-    class Fighter : IPojazd
+    public class Fighter : IPojazd
     {
         KuatDriveYards TieEngine;
 
